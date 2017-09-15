@@ -1,0 +1,68 @@
+<aura:component controller="ErrorPlaygroundController">
+    
+    <div class="slds-page-header">
+        <div class="slds-media">
+            <div class="slds-media__figure">
+                <lightning:icon iconName="utility:connected_apps" size="normal" alternativeText="Event icon"/>
+            </div>
+            <div class="slds-media__body">
+                <h1 class="slds-page-header__title slds-truncate slds-align-middle">Error Handling Playground</h1>
+                <p class="slds-text-body_small slds-line-height_reset">Open your developer console and trigger some errors!</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slds-m-around_x-large slds-align_absolute-center">
+        <lightning:layout horizontalAlign="space">
+            
+            <!-- Server-side -->
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <lightning:card >
+                    <aura:set attribute="title">
+                        <lightning:icon iconName="utility:company" size="small"/>
+                        Server-side (Apex)
+                    </aura:set>
+                    <p class="slds-p-horizontal--small">
+                        
+                        <p class="slds-text-title_caps slds-m-top_medium slds-m-bottom_small">
+                            <lightning:icon iconName="utility:dislike" size="x-small"/> Bad Practice
+                        </p>
+                        <lightning:button label="Trigger internal error" onclick="{!c.onTriggerInternalServerError}" variant="brand"/>
+                        
+                        <p class="slds-text-title_caps slds-m-top_medium slds-m-bottom_small">
+                            <lightning:icon iconName="utility:like" size="x-small"/>  Best Practice
+                        </p>
+                        <lightning:button label="Trigger basic error" onclick="{!c.onTriggerBasicServerError}" variant="brand"/>
+                        <lightning:button label="Trigger custom error" onclick="{!c.onTriggerCustomServerError}" variant="brand"/>
+                        
+                    </p>
+                </lightning:card>
+            </lightning:layoutItem>
+            
+            <!-- Client-side -->
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <lightning:card >
+                    <aura:set attribute="title">
+                        <lightning:icon iconName="utility:desktop" size="small"/>
+                        Client-side (Lightning)
+                    </aura:set>
+                    <p class="slds-p-horizontal--small">
+                        
+                        <p class="slds-text-title_caps slds-m-top_medium slds-m-bottom_small">
+                            <lightning:icon iconName="utility:dislike" size="x-small"/> Bad Practice
+                        </p>
+                        <lightning:button label="Trigger unhandled error" onclick="{!c.onTriggerUnhandledClientError}" variant="brand"/>
+                        
+                        <p class="slds-text-title_caps slds-m-top_medium slds-m-bottom_small">
+                            <lightning:icon iconName="utility:like" size="x-small"/>  Best Practice
+                        </p>
+                        <lightning:button label="Trigger basic error" onclick="{!c.onTriggerBasicClientError}" variant="brand"/>
+                        <lightning:button label="Trigger custom error" onclick="{!c.onTriggerCustomClientError}" variant="brand"/>
+                        
+                    </p>
+                </lightning:card>
+            </lightning:layoutItem>
+        
+        </lightning:layout>
+    </div>
+</aura:component>

@@ -1,0 +1,8 @@
+{
+    "orgName": "pozil",
+    "edition": "Developer",
+    "country": "GB",
+    "orgPreferences" : {
+        "enabled": ["S1DesktopEnabled"]
+    }
+}
