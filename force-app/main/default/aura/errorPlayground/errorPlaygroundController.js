@@ -6,7 +6,7 @@
             let state = response.getState();
             if (state === "ERROR") {
                 let errors = response.getError();
-                if (errors && errors[0] && errors[0].message) {
+                if (errors && Array.isArray(errors) && errors.length > 0) {
                     console.error(errors[0].message);
                 } else {
                     console.error("Unknown error");
@@ -23,7 +23,7 @@
             let state = response.getState();
             if (state === "ERROR") {
                 let errors = response.getError();
-                if (errors && errors[0] && errors[0].message) {
+                if (errors && Array.isArray(errors) && errors.length > 0) {
                     console.error(errors[0].message);
                 } else {
                     console.error("Unknown error");
@@ -40,7 +40,7 @@
             let state = response.getState();
             if (state === "ERROR") {
                 let errors = response.getError();
-                if (errors && errors[0] && errors[0].message) {
+                if (errors && Array.isArray(errors) && errors.length > 0) {
                     // Parse custom error data & report it
                     let errorData = JSON.parse(errors[0].message);
                     console.error(errorData.name +" (code "+ errorData.code +"): "+ errorData.message);
@@ -79,14 +79,14 @@
         
         // Throwing and handling error
         try {
-            throw new MyCustomError('MyCustomError', 'Custom error message', 456);
+            throw new MyCustomError('MyCustomClientError', 'Some message about the error', 456);
         } catch (e) {
             if (e instanceof MyCustomError) {
                 // Specific message for MyCustomError
                 console.error(e.name +' (code '+ e.code +'): '+ e.message);
             }
             else {
-                // Generic message for other types of error
+                // Generic message for other types of error (unreachable in this sample)
                 console.error(e.message);
             }
         }
