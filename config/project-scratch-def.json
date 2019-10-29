@@ -1,10 +1,13 @@
 {
     "orgName": "pozil",
     "edition": "Developer",
-    "country": "GB",
+    "language": "en_US",
     "settings": { 
         "lightningExperienceSettings": { 
             "enableS1DesktopEnabled": true 
+        },
+        "mobileSettings": {
+            "enableS1EncryptedStoragePref2": false
         }
     } 
 }
