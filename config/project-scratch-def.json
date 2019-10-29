@@ -2,5 +2,9 @@
     "orgName": "pozil",
     "edition": "Developer",
     "country": "GB",
-     { "settings": { "lightningExperienceSettings": { "enableS1DesktopEnabled": true } } }
+    "settings": { 
+        "lightningExperienceSettings": { 
+            "enableS1DesktopEnabled": true 
+        } 
+    }
 }
